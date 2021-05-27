@@ -14,6 +14,8 @@
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+	  <maven.compiler.source>1.6</maven.compiler.source>
+	  <maven.compiler.target>1.6</maven.compiler.target>
   </properties>
 
   <modules>
@@ -28,6 +30,8 @@
       <url>file:///tmp/maven-project-site</url>
     </site>
   </distributionManagement>
+	
+ 
 
   <build>
     <plugins>
@@ -81,7 +85,29 @@
             </plugin>
           </reportPlugins>
         </configuration>
- 
+      </plugin>
+             <plugin>
+		<groupId>org.jacoco</groupId>
+		<artifactId>jacoco-maven-plugin</artifactId>
+		<version>0.8.5</version>
+		<executions>
+			<execution>
+				<goals>
+					<goal>prepare-agent</goal>
+				</goals>
+			</execution>
+			<!-- attached to Maven test phase -->
+	
+		<execution>
+				<id>report</id>
+				<phase>test</phase>
+				<goals>
+					<goal>report</goal>
+				</goals>
+			</execution>
+		</executions>
+		</plugin>
+
     </plugins>
 
     <pluginManagement>
@@ -126,9 +152,10 @@
           <version>2.5</version>
         </plugin>
 
-        <plugin>
+    	<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.0</version>
+          <version>3.9.0</version>
         </plugin>
 
         <plugin>
@@ -137,9 +164,9 @@
         </plugin>
 
         <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.11</version>
-        </plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+</plugin>
 
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
