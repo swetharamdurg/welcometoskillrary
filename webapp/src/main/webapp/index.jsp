@@ -1,3 +1,3 @@
-<h1> Hello, Welcome to SkillRary !!!Barclays Training </h1>
+<h1> Hello, Welcome to SkillRary !!!CG Training </h1>
 
 
